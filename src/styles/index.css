@@ -1,0 +1,38 @@
+@import "./fonts.css";
+@import "./tailwind.css";
+@import "./theme.css";
+
+/* Custom scrollbar hiding */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scrollbar for upload modal */
+.upload-modal-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.upload-modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 32px 0 40px 0;
+}
+
+.upload-modal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  max-height: 50%;
+}
+
+.upload-modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.upload-modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
