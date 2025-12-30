@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { motion } from 'motion/react';
-import { Trash2 } from 'lucide-react';
+import { Trash2, ArrowUpRight, ImagePlus } from 'lucide-react';
 
 export interface Artwork {
   id: number;
@@ -29,6 +29,27 @@ export function ImageGrid({ artworks, onImageClick, onDelete, isCustom }: ImageG
       onDelete?.(artworkId);
     }
   };
+
+  // Empty state when no artworks
+  if (artworks.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center"
+        >
+          <ImagePlus className="w-16 h-16 mb-6 opacity-20" strokeWidth={1.5} />
+          <p className="text-xl mb-2 opacity-40">No images yet</p>
+          <div className="flex items-center gap-2 opacity-30">
+            <p>Click the upload button</p>
+            <ArrowUpRight className="w-5 h-5" />
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className="px-16 md:px-32 lg:px-48 pt-24 pb-16">
