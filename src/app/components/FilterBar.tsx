@@ -85,8 +85,8 @@ export function FilterBar({ activeFilter, onFilterChange, onUploadClick, onHomeC
             disabled={activeFilter === 'All' || activeFilter === 'Home'}
             className={`
               absolute right-0 top-1/2 -translate-y-1/2
-              flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-lg whitespace-nowrap
-              transition-opacity duration-300 bg-white
+              md:flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-lg whitespace-nowrap
+              transition-opacity duration-300 bg-white hidden
               ${activeFilter === 'All' || activeFilter === 'Home'
                 ? 'opacity-0 pointer-events-none' 
                 : 'opacity-60 hover:opacity-100'

@@ -6,6 +6,7 @@ import { UploadModal } from './components/UploadModal';
 import { Eyes } from './components/Eyes';
 import { CustomCursor } from './components/CustomCursor';
 import { motion } from 'motion/react';
+import { Plus } from 'lucide-react';
 
 export default function App() {
   const [activeFilter, setActiveFilter] = useState('Home');
@@ -207,6 +208,17 @@ export default function App() {
         onUpload={handleUpload}
       />
       <CustomCursor mousePosition={mousePosition} />
+      
+      {/* Mobile Floating Upload Button */}
+      {activeFilter !== 'Home' && activeFilter !== 'All' && (
+        <button
+          onClick={() => setIsUploadModalOpen(true)}
+          className="md:hidden fixed bottom-8 right-8 z-40 w-14 h-14 rounded-full bg-[#0CF500] text-black shadow-lg flex items-center justify-center transition-transform active:scale-95"
+          aria-label="Upload"
+        >
+          <Plus className="w-6 h-6" />
+        </button>
+      )}
     </div>
   );
 }
