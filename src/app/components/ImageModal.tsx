@@ -289,7 +289,7 @@ export function ImageModal({ artwork, allArtworks, onClose, onNavigate, onDelete
               >
                 {/* Fixed Header with Close Button */}
                 <div className="fixed top-0 left-0 right-0 z-30 bg-white/90 backdrop-blur-md border-b border-gray-100">
-                  <div className="flex justify-end items-center h-16 px-6">
+                  <div className="flex justify-end items-center h-12 px-6">
                     <button
                       onClick={onClose}
                       className="opacity-60 hover:opacity-100 transition-opacity"
@@ -300,7 +300,7 @@ export function ImageModal({ artwork, allArtworks, onClose, onNavigate, onDelete
                 </div>
 
                 {/* Image Section - Light Gray Background */}
-                <div className="w-full min-h-[50vh] flex items-center justify-center bg-gray-100 p-4 pt-20">
+                <div className="w-full min-h-[50vh] flex items-center justify-center bg-gray-100 p-4 pt-16 pb-10 mt-6">
                   <img
                     src={artwork.imageUrl}
                     alt={artwork.series}

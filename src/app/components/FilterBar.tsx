@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, Sparkles } from 'lucide-react';
+import { Plus, Sparkles, Banana } from 'lucide-react';
 
 interface FilterBarProps {
   activeFilter: string;
@@ -45,6 +45,17 @@ function HomeIcon({ isActive }: { isActive: boolean }) {
 
 export function FilterBar({ activeFilter, onFilterChange, onUploadClick, onHomeClick }: FilterBarProps) {
   const isHomeActive = activeFilter === 'Home';
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
@@ -60,24 +71,36 @@ export function FilterBar({ activeFilter, onFilterChange, onUploadClick, onHomeC
               <HomeIcon isActive={isHomeActive} />
             </button>
             
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => onFilterChange(filter)}
-                className={`
-                  whitespace-nowrap transition-all duration-300 flex items-center gap-2
-                  ${activeFilter === filter 
-                    ? 'text-black opacity-100' 
-                    : 'text-black opacity-100 hover:text-[#0CF500]'
-                  }
-                `}
-              >
-                {filter}
-                {activeFilter === filter && (
-                  <Sparkles className="w-3.5 h-3.5" />
-                )}
-              </button>
-            ))}
+            {filters.map((filter) => {
+              // Show shortened "Midjour" on mobile when Nanobanana is active
+              const displayText = 
+                isMobile && filter === 'Midjourney' && activeFilter === 'Nanobanana' 
+                  ? 'Midjour' 
+                  : filter;
+              
+              return (
+                <button
+                  key={filter}
+                  onClick={() => onFilterChange(filter)}
+                  className={`
+                    whitespace-nowrap transition-all duration-300 flex items-center gap-2
+                    ${activeFilter === filter 
+                      ? 'text-black opacity-100' 
+                      : 'text-black opacity-100 hover:text-[#0CF500]'
+                    }
+                  `}
+                >
+                  {displayText}
+                  {activeFilter === filter && (
+                    filter === 'Nanobanana' ? (
+                      <Banana className="w-3.5 h-3.5" />
+                    ) : (
+                      <Sparkles className="w-3.5 h-3.5" />
+                    )
+                  )}
+                </button>
+              );
+            })}
           </div>
           
           <button

@@ -163,7 +163,7 @@ export default function App() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ fontWeight: 900 }}
-              className="text-7xl md:text-9xl lg:text-[12rem] xl:text-[14rem] mb-6 md:mb-12 tracking-tighter leading-[0.9]"
+              className="text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] mb-6 md:mb-12 tracking-tighter leading-[0.9]"
             >
               Hello
               <br />
@@ -174,7 +174,7 @@ export default function App() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{ fontWeight: 900 }}
-              className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl opacity-50 tracking-tight leading-[0.95]"
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl opacity-50 tracking-tight leading-[0.95]"
             >
               Creation through AI.
             </motion.p>
